@@ -7,7 +7,7 @@ import com.github.igorkoppen.ms_aluno.model.Status;
 public class Factory {
 
     public static Aluno createAluno() {
-        return new Aluno(1L, "Igor Koppen", "igor.pereira@example.com", "senha202", "93507", Status.MATRICULADO, "SIPG");
+        return new Aluno(1L,"Igor Koppen", "igor.pereira@example.com", "senha202", "93507", Status.MATRICULADO, "SIPG");
     }
 
     public static AlunoDTO createAlunoDTO() {

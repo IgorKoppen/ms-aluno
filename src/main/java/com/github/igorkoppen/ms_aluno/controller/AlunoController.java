@@ -31,7 +31,7 @@ public class AlunoController {
     }
     @GetMapping("/{id}")
     public ResponseEntity<AlunoDTO> findById(@PathVariable @NotNull Long id){
-        AlunoDTO alunoDTO = service.getById(id);
+        AlunoDTO alunoDTO = service.findById(id);
         return ResponseEntity.ok(alunoDTO);
     }
     @GetMapping

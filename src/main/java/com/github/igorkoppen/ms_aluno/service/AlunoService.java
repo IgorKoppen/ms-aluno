@@ -35,7 +35,7 @@ public class AlunoService {
     }
 
     @Transactional(readOnly = true)
-    public AlunoDTO getById(Long id){
+    public AlunoDTO findById(Long id){
         Aluno aluno = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
         return new AlunoDTO(aluno);
     }
@@ -69,7 +69,7 @@ public class AlunoService {
     entity.setEmail(dto.getEmail());
     entity.setRm(dto.getRm());
     if(dto.getStatus() != null) {
-        entity.setStatus(dto.getStatus().getStatus());
+        entity.setStatus(dto.getStatus());
     }
     entity.setTurma(dto.getTurma());
     }

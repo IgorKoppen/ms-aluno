@@ -1,6 +1,7 @@
 package com.github.igorkoppen.ms_aluno.dto;
 
 import com.github.igorkoppen.ms_aluno.model.Aluno;
+import com.github.igorkoppen.ms_aluno.model.Status;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.Valid;
@@ -25,11 +26,11 @@ public class AlunoDTO {
     @NotBlank(message = "Campo requerido!")
     private String rm;
     @Enumerated(value = EnumType.ORDINAL)
-    private StatusDTO status;
+    private Status status;
     @NotBlank(message = "Campo requerido!")
     private String turma;
 
-    public AlunoDTO(Long id, String nome, String email, String password, String rm, StatusDTO status, String turma) {
+    public AlunoDTO(Long id, String nome, String email, String password, String rm, Status status, String turma) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -45,7 +46,7 @@ public class AlunoDTO {
         this.password = entity.getPassword();
         this.rm = entity.getRm();
         if(entity.getStatus() != null) {
-            this.status = new StatusDTO(entity.getStatus());
+            this.status = entity.getStatus();
         }
         this.turma = entity.getTurma();
     }
@@ -90,11 +91,11 @@ public class AlunoDTO {
         this.rm = rm;
     }
 
-    public StatusDTO getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(StatusDTO status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
